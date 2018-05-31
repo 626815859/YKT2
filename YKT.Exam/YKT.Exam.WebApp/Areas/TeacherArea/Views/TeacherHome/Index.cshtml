@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Content/themes/icon.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+
+    @*页签的操作开始：参考Demo*@
+    <script type="text/javascript">
+        $(function () {
+            binClickEvent();
+        });
+        function binClickEvent() {
+            //绑定超链接的单击事件
+            $(".detailLink123").click(function () {
+                var title = $(this).text();
+                var url = $(this).attr("url");
+                var isExt = $('#tt').tabs('exists', title);//判断页签是否存在
+               //判定页签是否存在，存在就选中状态，没有就新增显示
+                if (isExt) {
+                    $('#tt').tabs('select', title);
+                    return;
+                }
+                $('#tt').tabs('add', {
+                    title: title,
+                    content: showContent(url),
+                    closable: true
+                });
+
+            });
+        }
+        //页签中显示的内容
+        function showContent(url) {
+            var strHtml = '<iframe src="' + url + '" scrolling="no" width="100%" height="100%" frameborder="0"></iframe>';
+            return strHtml;
+        }
+    </script>
+    @*页签的操作结束：参考Demo*@
+
+
+</head>
+<body class="easyui-layout">
+    @*布局*@
+
+
+    <!------------------顶部的top栏---------------->
+    <div region="north" border="false" style="height:80px;background:url('../../Content/Images/bg3.png');overflow:hidden;
+	    background-repeat:repeat-x;">
+        <h1 style="text-align:center;color:Green;">一考通教师端</h1>
+    </div>
+    <!------------------顶部的top栏结束---------------->
+    <!------------------content左侧---------------->
+    <div region="west" split="true" title="菜单" style="width:150px;padding:2px;">
+        <div class="easyui-accordion" style="width:auto;height:auto;">
+            <div title="学生管理" data-options="iconCls:'icon-ok'" style="padding:10px;">
+                <a href="javascript:void(0)" class="detailLink123" url="/TeacherArea/StudentList/Index">学生管理</a>
+            </div>
+            <div title="题库管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
+                <a href="javascript:void(0)" class="detailLink123" url="/TeacherArea/TestQuestionList/Index">题库管理</a>
+            </div>
+            <div title="基试卷管理" data-options="iconCls:'icon-ok'" style="padding:10px;">
+                <a href="javascript:void(0)" class="detailLink123" url="/TeacherArea/BaseTestPaperList/Index">基试卷管理</a>
+            </div>
+            <div title="日志管理" data-options="iconCls:'icon-ok'" style="padding:10px;">
+                <a href="javascript:void(0)" class="detailLink123" url="/Comment/Index">日志管理</a>
+            </div>
+            <div title="文件管理" data-options="iconCls:'icon-ok'" style="padding:10px;">
+                <a href="javascript:void(0)" class="detailLink123" url="/Comment/Index">文件管理</a>
+            </div>
+            <div title="权限管理" data-options="iconCls:'icon-ok'" style="padding:10px;">
+                <a href="javascript:void(0)" class="detailLink123" url="/Comment/Index">权限管理</a>
+            </div>
+            <div title="帮助" data-options="iconCls:'icon-help'" style="padding:10px;">
+                <a href="javascript:void(0)" class="detailLink123" url="/Comment/Index">帮助</a>
+            </div>
+        </div>
+    </div>
+    <!------------------content左侧结束---------------->
+    <!------------------底部---------------->
+    <div region="south" border="false" style="height:50px;background:#A9FACD;padding:10px;text-align:center">版权&nbsp; 一考通小组</div>
+    <!------------------底部结束---------------->
+    <!------------------右侧---------------->
+    <div region="center" title="Main Title">
+
+        <div class="easyui-tabs" style="width:700px;height:250px" fit="true" id="tt">
+            @*页签，fit="true"表示铺满容器*@
+            @*内容*@
+            <div title="学生管理" style="padding:10px">
+                <iframe src="/TeacherArea/StudentList/Index" scrolling="no" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!------------------右侧结束---------------->
+
+</body>
+</html>

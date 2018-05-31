@@ -1,0 +1,12 @@
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\bin\Debug\YKT.Exam.Model.dll.config
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\bin\Debug\YKT.Exam.Model.dll
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\bin\Debug\YKT.Exam.Model.pdb
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\bin\Debug\EntityFramework.dll
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\bin\Debug\EntityFramework.SqlServer.dll
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\bin\Debug\EntityFramework.xml
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\bin\Debug\EntityFramework.SqlServer.xml
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\obj\Debug\YKT.Exam.Model.dll
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\obj\Debug\YKT.Exam.Model.pdb
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Model\obj\Debug\YKT.Exam.Model.csprojResolveAssemblyReference.cache

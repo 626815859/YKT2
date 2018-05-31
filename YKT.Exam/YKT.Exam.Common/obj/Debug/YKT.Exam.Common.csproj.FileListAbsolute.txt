@@ -1,0 +1,5 @@
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Common\bin\Debug\YKT.Exam.Common.dll
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Common\bin\Debug\YKT.Exam.Common.pdb
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Common\obj\Debug\YKT.Exam.Common.dll
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Common\obj\Debug\YKT.Exam.Common.pdb
+F:\新建文件夹\net课堂项目\2018\YKT.Exam\YKT.Exam.Common\obj\Debug\YKT.Exam.Common.csprojResolveAssemblyReference.cache

@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="TestQuestionSet" EntityType="Model1.Store.TestQuestionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TestPaperSet" EntityType="Model1.Store.TestPaperSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeacherSet" EntityType="Model1.Store.TeacherSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StudentSet" EntityType="Model1.Store.StudentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CourseSet" EntityType="Model1.Store.CourseSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScoreSet" EntityType="Model1.Store.ScoreSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClassSet" EntityType="Model1.Store.ClassSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommentSet" EntityType="Model1.Store.CommentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CollectionSet" EntityType="Model1.Store.CollectionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StudentTestResultSet" EntityType="Model1.Store.StudentTestResultSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaperQuestionSet" EntityType="Model1.Store.PaperQuestionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BaseTestPaperSet" EntityType="Model1.Store.BaseTestPaperSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeacherClass" EntityType="Model1.Store.TeacherClass" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StudentCourse" EntityType="Model1.Store.StudentCourse" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CourseTestPaper" Association="Model1.Store.CourseTestPaper">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="TestPaper" EntitySet="TestPaperSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeacherClass_Teacher" Association="Model1.Store.FK_TeacherClass_Teacher">
+      <End Role="Teacher" EntitySet="TeacherSet" />
+      <End Role="TeacherClass" EntitySet="TeacherClass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeacherClass_Class" Association="Model1.Store.FK_TeacherClass_Class">
+      <End Role="Class" EntitySet="ClassSet" />
+      <End Role="TeacherClass" EntitySet="TeacherClass" />
+    </AssociationSet>
+    <AssociationSet Name="ClassStudent" Association="Model1.Store.ClassStudent">
+      <End Role="Class" EntitySet="ClassSet" />
+      <End Role="Student" EntitySet="StudentSet" />
+    </AssociationSet>
+    <AssociationSet Name="StudentCollection" Association="Model1.Store.StudentCollection">
+      <End Role="Student" EntitySet="StudentSet" />
+      <End Role="Collection" EntitySet="CollectionSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentCourse_Student" Association="Model1.Store.FK_StudentCourse_Student">
+      <End Role="Student" EntitySet="StudentSet" />
+      <End Role="StudentCourse" EntitySet="StudentCourse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentCourse_Course" Association="Model1.Store.FK_StudentCourse_Course">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="StudentCourse" EntitySet="StudentCourse" />
+    </AssociationSet>
+    <AssociationSet Name="CourseComment" Association="Model1.Store.CourseComment">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="Comment" EntitySet="CommentSet" />
+    </AssociationSet>
+    <AssociationSet Name="StudentTestPaper" Association="Model1.Store.StudentTestPaper">
+      <End Role="Student" EntitySet="StudentSet" />
+      <End Role="TestPaper" EntitySet="TestPaperSet" />
+    </AssociationSet>
+    <AssociationSet Name="TestPaperStudentTestResult" Association="Model1.Store.TestPaperStudentTestResult">
+      <End Role="TestPaper" EntitySet="TestPaperSet" />
+      <End Role="StudentTestResult" EntitySet="StudentTestResultSet" />
+    </AssociationSet>
+    <AssociationSet Name="StudentStudentTestResult" Association="Model1.Store.StudentStudentTestResult">
+      <End Role="Student" EntitySet="StudentSet" />
+      <End Role="StudentTestResult" EntitySet="StudentTestResultSet" />
+    </AssociationSet>
+    <AssociationSet Name="TestQuestionCollection" Association="Model1.Store.TestQuestionCollection">
+      <End Role="TestQuestion" EntitySet="TestQuestionSet" />
+      <End Role="Collection" EntitySet="CollectionSet" />
+    </AssociationSet>
+    <AssociationSet Name="TestQuestionStudentTestResult" Association="Model1.Store.TestQuestionStudentTestResult">
+      <End Role="TestQuestion" EntitySet="TestQuestionSet" />
+      <End Role="StudentTestResult" EntitySet="StudentTestResultSet" />
+    </AssociationSet>
+    <AssociationSet Name="TestQuestionPaperQuestion" Association="Model1.Store.TestQuestionPaperQuestion">
+      <End Role="TestQuestion" EntitySet="TestQuestionSet" />
+      <End Role="PaperQuestion" EntitySet="PaperQuestionSet" />
+    </AssociationSet>
+    <AssociationSet Name="TestPaperScore" Association="Model1.Store.TestPaperScore">
+      <End Role="TestPaper" EntitySet="TestPaperSet" />
+      <End Role="Score" EntitySet="ScoreSet" />
+    </AssociationSet>
+    <AssociationSet Name="CourseScore" Association="Model1.Store.CourseScore">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="Score" EntitySet="ScoreSet" />
+    </AssociationSet>
+    <AssociationSet Name="BaseTestPaperTestPaper" Association="Model1.Store.BaseTestPaperTestPaper">
+      <End Role="BaseTestPaper" EntitySet="BaseTestPaperSet" />
+      <End Role="TestPaper" EntitySet="TestPaperSet" />
+    </AssociationSet>
+    <AssociationSet Name="BaseTestPaperPaperQuestion" Association="Model1.Store.BaseTestPaperPaperQuestion">
+      <End Role="BaseTestPaper" EntitySet="BaseTestPaperSet" />
+      <End Role="PaperQuestion" EntitySet="PaperQuestionSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TestQuestionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TestQuestionType" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="TestQuestionName" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="TestQuestionQuestion" Type="nvarchar" Nullable="true" MaxLength="500" />
+    <Property Name="TestQuestionGrade" Type="int" Nullable="true" />
+    <Property Name="TestQuestionResult" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TestPaperSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TestPaperStartTime" Type="datetime" Nullable="true" />
+    <Property Name="TestPaperEndTime" Type="datetime" Nullable="true" />
+    <Property Name="Course_CourseId" Type="int" Nullable="false" />
+    <Property Name="Student_StudentId" Type="int" Nullable="false" />
+    <Property Name="BaseTestPaper_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeacherSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherName" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="TeacherPwd" Type="nvarchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="StudentSet">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="StudentName" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="StudentPwd" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Class_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CourseSet">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" Nullable="true" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ScoreSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Grade" Type="int" Nullable="true" />
+    <Property Name="TestPaper_Id" Type="int" Nullable="false" />
+    <Property Name="Course_CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClassSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" Nullable="true" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CommentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommentContent" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="CommentTime" Type="datetime" Nullable="true" />
+    <Property Name="Course_CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CollectionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CollectionName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Student_StudentId" Type="int" Nullable="false" />
+    <Property Name="TestQuestion_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentTestResultSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionResult" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TestPaper_Id" Type="int" Nullable="false" />
+    <Property Name="Student_StudentId" Type="int" Nullable="false" />
+    <Property Name="TestQuestion_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaperQuestionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TestQuestion_Id" Type="int" Nullable="false" />
+    <Property Name="BaseTestPaper_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BaseTestPaperSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BaseTestPaperName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="BaseTestPaperCreateTime" Type="datetime" Nullable="true" />
+    <Property Name="BaseTestPaperType" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TeacherClass">
+    <Key>
+      <PropertyRef Name="Teacher_Id" />
+      <PropertyRef Name="Class_Id" />
+    </Key>
+    <Property Name="Teacher_Id" Type="int" Nullable="false" />
+    <Property Name="Class_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentCourse">
+    <Key>
+      <PropertyRef Name="Student_StudentId" />
+      <PropertyRef Name="Course_CourseId" />
+    </Key>
+    <Property Name="Student_StudentId" Type="int" Nullable="false" />
+    <Property Name="Course_CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CourseTestPaper">
+    <End Role="Course" Type="Model1.Store.CourseSet" Multiplicity="1" />
+    <End Role="TestPaper" Type="Model1.Store.TestPaperSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="TestPaper">
+        <PropertyRef Name="Course_CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClassStudent">
+    <End Role="Class" Type="Model1.Store.ClassSet" Multiplicity="1" />
+    <End Role="Student" Type="Model1.Store.StudentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Class_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StudentCollection">
+    <End Role="Student" Type="Model1.Store.StudentSet" Multiplicity="1" />
+    <End Role="Collection" Type="Model1.Store.CollectionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Collection">
+        <PropertyRef Name="Student_StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseComment">
+    <End Role="Course" Type="Model1.Store.CourseSet" Multiplicity="1" />
+    <End Role="Comment" Type="Model1.Store.CommentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="Course_CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StudentTestPaper">
+    <End Role="Student" Type="Model1.Store.StudentSet" Multiplicity="1" />
+    <End Role="TestPaper" Type="Model1.Store.TestPaperSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="TestPaper">
+        <PropertyRef Name="Student_StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestPaperStudentTestResult">
+    <End Role="TestPaper" Type="Model1.Store.TestPaperSet" Multiplicity="1" />
+    <End Role="StudentTestResult" Type="Model1.Store.StudentTestResultSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestPaper">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentTestResult">
+        <PropertyRef Name="TestPaper_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StudentStudentTestResult">
+    <End Role="Student" Type="Model1.Store.StudentSet" Multiplicity="1" />
+    <End Role="StudentTestResult" Type="Model1.Store.StudentTestResultSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="StudentTestResult">
+        <PropertyRef Name="Student_StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestQuestionCollection">
+    <End Role="TestQuestion" Type="Model1.Store.TestQuestionSet" Multiplicity="1" />
+    <End Role="Collection" Type="Model1.Store.CollectionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestQuestion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Collection">
+        <PropertyRef Name="TestQuestion_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestQuestionStudentTestResult">
+    <End Role="TestQuestion" Type="Model1.Store.TestQuestionSet" Multiplicity="1" />
+    <End Role="StudentTestResult" Type="Model1.Store.StudentTestResultSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestQuestion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentTestResult">
+        <PropertyRef Name="TestQuestion_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestQuestionPaperQuestion">
+    <End Role="TestQuestion" Type="Model1.Store.TestQuestionSet" Multiplicity="1" />
+    <End Role="PaperQuestion" Type="Model1.Store.PaperQuestionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestQuestion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PaperQuestion">
+        <PropertyRef Name="TestQuestion_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TestPaperScore">
+    <End Role="TestPaper" Type="Model1.Store.TestPaperSet" Multiplicity="1" />
+    <End Role="Score" Type="Model1.Store.ScoreSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestPaper">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="TestPaper_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseScore">
+    <End Role="Course" Type="Model1.Store.CourseSet" Multiplicity="1" />
+    <End Role="Score" Type="Model1.Store.ScoreSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="Course_CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BaseTestPaperTestPaper">
+    <End Role="BaseTestPaper" Type="Model1.Store.BaseTestPaperSet" Multiplicity="1" />
+    <End Role="TestPaper" Type="Model1.Store.TestPaperSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BaseTestPaper">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TestPaper">
+        <PropertyRef Name="BaseTestPaper_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BaseTestPaperPaperQuestion">
+    <End Role="BaseTestPaper" Type="Model1.Store.BaseTestPaperSet" Multiplicity="1" />
+    <End Role="PaperQuestion" Type="Model1.Store.PaperQuestionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BaseTestPaper">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PaperQuestion">
+        <PropertyRef Name="BaseTestPaper_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeacherClass_Teacher">
+    <End Role="Teacher" Type="Model1.Store.TeacherSet" Multiplicity="1" />
+    <End Role="TeacherClass" Type="Model1.Store.TeacherClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeacherClass">
+        <PropertyRef Name="Teacher_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeacherClass_Class">
+    <End Role="TeacherClass" Type="Model1.Store.TeacherClass" Multiplicity="*" />
+    <End Role="Class" Type="Model1.Store.ClassSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeacherClass">
+        <PropertyRef Name="Class_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentCourse_Student">
+    <End Role="Student" Type="Model1.Store.StudentSet" Multiplicity="1" />
+    <End Role="StudentCourse" Type="Model1.Store.StudentCourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="StudentCourse">
+        <PropertyRef Name="Student_StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentCourse_Course">
+    <End Role="StudentCourse" Type="Model1.Store.StudentCourse" Multiplicity="*" />
+    <End Role="Course" Type="Model1.Store.CourseSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="StudentCourse">
+        <PropertyRef Name="Course_CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

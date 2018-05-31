@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b415fa3d7bf447d4a9d03873454185df" Name="Diagram1" ZoomLevel="74" >
+        <EntityTypeShape EntityType="Model1.TestQuestion" Width="2.625" PointX="4.25" PointY="2.375" />
+        <EntityTypeShape EntityType="Model1.TestPaper" Width="1.5" PointX="11.625" PointY="6.375" />
+        <EntityTypeShape EntityType="Model1.Teacher" Width="1.5" PointX="0.5" PointY="10" />
+        <EntityTypeShape EntityType="Model1.Student" Width="1.5" PointX="1.125" PointY="1.25" />
+        <EntityTypeShape EntityType="Model1.Course" Width="1.5" PointX="4.5" PointY="7.5" />
+        <EntityTypeShape EntityType="Model1.Score" Width="1.5" PointX="9.5" PointY="9.125" />
+        <EntityTypeShape EntityType="Model1.Class" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="Model1.Comment" Width="1.5" PointX="3.875" PointY="10.5" />
+        <EntityTypeShape EntityType="Model1.Collection" Width="1.5" PointX="10.25" PointY="1.625" />
+        <AssociationConnector Association="Model1.CourseTestPaper" />
+        <AssociationConnector Association="Model1.TeacherClass" />
+        <AssociationConnector Association="Model1.ClassStudent" />
+        <AssociationConnector Association="Model1.StudentCollection" />
+        <AssociationConnector Association="Model1.StudentCourse" />
+        <AssociationConnector Association="Model1.CourseComment" />
+        <AssociationConnector Association="Model1.StudentTestPaper" />
+        <EntityTypeShape EntityType="Model1.StuTestResult" Width="1.5" PointX="9.5" PointY="4.5" />
+        <EntityTypeShape EntityType="Model1.StuTestReault" Width="1.5" PointX="6.875" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.StudentTestResult" Width="1.5" PointX="8" PointY="6.25" />
+        <AssociationConnector Association="Model1.TestPaperStudentTestResult" />
+        <AssociationConnector Association="Model1.StudentStudentTestResult" />
+        <AssociationConnector Association="Model1.TestQuestionCollection" />
+        <AssociationConnector Association="Model1.TestQuestionStudentTestResult" />
+        <EntityTypeShape EntityType="Model1.PaperQuestion" Width="1.5" PointX="12.875" PointY="3.375" />
+        <AssociationConnector Association="Model1.TestQuestionPaperQuestion" />
+        <AssociationConnector Association="Model1.TestPaperScore" />
+        <AssociationConnector Association="Model1.CourseScore" />
+        <EntityTypeShape EntityType="Model1.BaseTestPaper" Width="1.5" PointX="9.625" PointY="4" />
+        <AssociationConnector Association="Model1.BaseTestPaperTestPaper" />
+        <AssociationConnector Association="Model1.BaseTestPaperPaperQuestion" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

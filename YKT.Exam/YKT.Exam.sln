@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YKT.Exam.BLL", "YKT.Exam.BLL\YKT.Exam.BLL.csproj", "{0BDA4BE3-8EF7-4C46-8F9F-AA56320991DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YKT.Exam.Common", "YKT.Exam.Common\YKT.Exam.Common.csproj", "{E5E79BDE-D9C0-46DD-8052-C0D3932665A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YKT.Exam.DAL", "YKT.Exam.DAL\YKT.Exam.DAL.csproj", "{33570034-DE5B-4508-921B-AA58FCFB3C5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YKT.Exam.Model", "YKT.Exam.Model\YKT.Exam.Model.csproj", "{28BDC69C-58CB-4806-8331-E0AC36A0AB89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YKT.Exam.WebApp", "YKT.Exam.WebApp\YKT.Exam.WebApp.csproj", "{1346F4AB-38C3-4CB8-A0E1-46A3D69ED8B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BDA4BE3-8EF7-4C46-8F9F-AA56320991DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BDA4BE3-8EF7-4C46-8F9F-AA56320991DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BDA4BE3-8EF7-4C46-8F9F-AA56320991DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BDA4BE3-8EF7-4C46-8F9F-AA56320991DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5E79BDE-D9C0-46DD-8052-C0D3932665A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5E79BDE-D9C0-46DD-8052-C0D3932665A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5E79BDE-D9C0-46DD-8052-C0D3932665A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5E79BDE-D9C0-46DD-8052-C0D3932665A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33570034-DE5B-4508-921B-AA58FCFB3C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33570034-DE5B-4508-921B-AA58FCFB3C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33570034-DE5B-4508-921B-AA58FCFB3C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33570034-DE5B-4508-921B-AA58FCFB3C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28BDC69C-58CB-4806-8331-E0AC36A0AB89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28BDC69C-58CB-4806-8331-E0AC36A0AB89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28BDC69C-58CB-4806-8331-E0AC36A0AB89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28BDC69C-58CB-4806-8331-E0AC36A0AB89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1346F4AB-38C3-4CB8-A0E1-46A3D69ED8B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1346F4AB-38C3-4CB8-A0E1-46A3D69ED8B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1346F4AB-38C3-4CB8-A0E1-46A3D69ED8B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1346F4AB-38C3-4CB8-A0E1-46A3D69ED8B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

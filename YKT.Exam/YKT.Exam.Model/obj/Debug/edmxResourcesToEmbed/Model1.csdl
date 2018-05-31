@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TestQuestionSet" EntityType="Model1.TestQuestion" />
+    <EntitySet Name="TestPaperSet" EntityType="Model1.TestPaper" />
+    <EntitySet Name="TeacherSet" EntityType="Model1.Teacher" />
+    <EntitySet Name="StudentSet" EntityType="Model1.Student" />
+    <EntitySet Name="CourseSet" EntityType="Model1.Course" />
+    <EntitySet Name="ScoreSet" EntityType="Model1.Score" />
+    <EntitySet Name="ClassSet" EntityType="Model1.Class" />
+    <EntitySet Name="CommentSet" EntityType="Model1.Comment" />
+    <EntitySet Name="CollectionSet" EntityType="Model1.Collection" />
+    <AssociationSet Name="CourseTestPaper" Association="Model1.CourseTestPaper">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="TestPaper" EntitySet="TestPaperSet" />
+    </AssociationSet>
+    <AssociationSet Name="TeacherClass" Association="Model1.TeacherClass">
+      <End Role="Teacher" EntitySet="TeacherSet" />
+      <End Role="Class" EntitySet="ClassSet" />
+    </AssociationSet>
+    <AssociationSet Name="ClassStudent" Association="Model1.ClassStudent">
+      <End Role="Class" EntitySet="ClassSet" />
+      <End Role="Student" EntitySet="StudentSet" />
+    </AssociationSet>
+    <AssociationSet Name="StudentCollection" Association="Model1.StudentCollection">
+      <End Role="Student" EntitySet="StudentSet" />
+      <End Role="Collection" EntitySet="CollectionSet" />
+    </AssociationSet>
+    <AssociationSet Name="StudentCourse" Association="Model1.StudentCourse">
+      <End Role="Student" EntitySet="StudentSet" />
+      <End Role="Course" EntitySet="CourseSet" />
+    </AssociationSet>
+    <AssociationSet Name="CourseComment" Association="Model1.CourseComment">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="Comment" EntitySet="CommentSet" />
+    </AssociationSet>
+    <AssociationSet Name="StudentTestPaper" Association="Model1.StudentTestPaper">
+      <End Role="Student" EntitySet="StudentSet" />
+      <End Role="TestPaper" EntitySet="TestPaperSet" />
+    </AssociationSet>
+    <EntitySet Name="StudentTestResultSet" EntityType="Model1.StudentTestResult" />
+    <AssociationSet Name="TestPaperStudentTestResult" Association="Model1.TestPaperStudentTestResult">
+      <End Role="TestPaper" EntitySet="TestPaperSet" />
+      <End Role="StudentTestResult" EntitySet="StudentTestResultSet" />
+    </AssociationSet>
+    <AssociationSet Name="StudentStudentTestResult" Association="Model1.StudentStudentTestResult">
+      <End Role="Student" EntitySet="StudentSet" />
+      <End Role="StudentTestResult" EntitySet="StudentTestResultSet" />
+    </AssociationSet>
+    <AssociationSet Name="TestQuestionCollection" Association="Model1.TestQuestionCollection">
+      <End Role="TestQuestion" EntitySet="TestQuestionSet" />
+      <End Role="Collection" EntitySet="CollectionSet" />
+    </AssociationSet>
+    <AssociationSet Name="TestQuestionStudentTestResult" Association="Model1.TestQuestionStudentTestResult">
+      <End Role="TestQuestion" EntitySet="TestQuestionSet" />
+      <End Role="StudentTestResult" EntitySet="StudentTestResultSet" />
+    </AssociationSet>
+    <EntitySet Name="PaperQuestionSet" EntityType="Model1.PaperQuestion" />
+    <AssociationSet Name="TestQuestionPaperQuestion" Association="Model1.TestQuestionPaperQuestion">
+      <End Role="TestQuestion" EntitySet="TestQuestionSet" />
+      <End Role="PaperQuestion" EntitySet="PaperQuestionSet" />
+    </AssociationSet>
+    <AssociationSet Name="TestPaperScore" Association="Model1.TestPaperScore">
+      <End Role="TestPaper" EntitySet="TestPaperSet" />
+      <End Role="Score" EntitySet="ScoreSet" />
+    </AssociationSet>
+    <AssociationSet Name="CourseScore" Association="Model1.CourseScore">
+      <End Role="Course" EntitySet="CourseSet" />
+      <End Role="Score" EntitySet="ScoreSet" />
+    </AssociationSet>
+    <EntitySet Name="BaseTestPaperSet" EntityType="Model1.BaseTestPaper" />
+    <AssociationSet Name="BaseTestPaperTestPaper" Association="Model1.BaseTestPaperTestPaper">
+      <End Role="BaseTestPaper" EntitySet="BaseTestPaperSet" />
+      <End Role="TestPaper" EntitySet="TestPaperSet" />
+    </AssociationSet>
+    <AssociationSet Name="BaseTestPaperPaperQuestion" Association="Model1.BaseTestPaperPaperQuestion">
+      <End Role="BaseTestPaper" EntitySet="BaseTestPaperSet" />
+      <End Role="PaperQuestion" EntitySet="PaperQuestionSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TestQuestion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TestQuestionType" Type="String" Nullable="true" MaxLength="10" />
+    <Property Name="TestQuestionName" Type="String" Nullable="true" MaxLength="200" />
+    <Property Name="TestQuestionQuestion" Type="String" Nullable="true" MaxLength="500" />
+    <Property Name="TestQuestionGrade" Type="Int32" Nullable="true" />
+    <Property Name="TestQuestionResult" Type="String" Nullable="false" />
+    <NavigationProperty Name="Collection" Relationship="Model1.TestQuestionCollection" FromRole="TestQuestion" ToRole="Collection" />
+    <NavigationProperty Name="StudentTestResult" Relationship="Model1.TestQuestionStudentTestResult" FromRole="TestQuestion" ToRole="StudentTestResult" />
+    <NavigationProperty Name="PaperQuestion" Relationship="Model1.TestQuestionPaperQuestion" FromRole="TestQuestion" ToRole="PaperQuestion" />
+  </EntityType>
+  <EntityType Name="TestPaper">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Course" Relationship="Model1.CourseTestPaper" FromRole="TestPaper" ToRole="Course" />
+    <NavigationProperty Name="Student" Relationship="Model1.StudentTestPaper" FromRole="TestPaper" ToRole="Student" />
+    <NavigationProperty Name="StudentTestResult" Relationship="Model1.TestPaperStudentTestResult" FromRole="TestPaper" ToRole="StudentTestResult" />
+    <NavigationProperty Name="Score" Relationship="Model1.TestPaperScore" FromRole="TestPaper" ToRole="Score" />
+    <NavigationProperty Name="BaseTestPaper" Relationship="Model1.BaseTestPaperTestPaper" FromRole="TestPaper" ToRole="BaseTestPaper" />
+    <Property Name="TestPaperStartTime" Type="DateTime" Nullable="true" />
+    <Property Name="TestPaperEndTime" Type="DateTime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeacherName" Type="String" Nullable="true" MaxLength="10" />
+    <Property Name="TeacherPwd" Type="String" Nullable="true" MaxLength="100" />
+    <NavigationProperty Name="Class" Relationship="Model1.TeacherClass" FromRole="Teacher" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="StudentName" Type="String" Nullable="true" MaxLength="20" />
+    <Property Name="StudentPwd" Type="String" Nullable="true" MaxLength="100" />
+    <NavigationProperty Name="Class" Relationship="Model1.ClassStudent" FromRole="Student" ToRole="Class" />
+    <NavigationProperty Name="Collection" Relationship="Model1.StudentCollection" FromRole="Student" ToRole="Collection" />
+    <NavigationProperty Name="Course" Relationship="Model1.StudentCourse" FromRole="Student" ToRole="Course" />
+    <NavigationProperty Name="TestPaper" Relationship="Model1.StudentTestPaper" FromRole="Student" ToRole="TestPaper" />
+    <NavigationProperty Name="StudentTestResult" Relationship="Model1.StudentStudentTestResult" FromRole="Student" ToRole="StudentTestResult" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseName" Type="String" Nullable="true" MaxLength="20" />
+    <NavigationProperty Name="TestPaper" Relationship="Model1.CourseTestPaper" FromRole="Course" ToRole="TestPaper" />
+    <NavigationProperty Name="Student" Relationship="Model1.StudentCourse" FromRole="Course" ToRole="Student" />
+    <NavigationProperty Name="Comment" Relationship="Model1.CourseComment" FromRole="Course" ToRole="Comment" />
+    <NavigationProperty Name="Score" Relationship="Model1.CourseScore" FromRole="Course" ToRole="Score" />
+  </EntityType>
+  <EntityType Name="Score">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Grade" Type="Int32" Nullable="true" />
+    <NavigationProperty Name="TestPaper" Relationship="Model1.TestPaperScore" FromRole="Score" ToRole="TestPaper" />
+    <NavigationProperty Name="Course" Relationship="Model1.CourseScore" FromRole="Score" ToRole="Course" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassName" Type="String" Nullable="true" MaxLength="20" />
+    <NavigationProperty Name="Teacher" Relationship="Model1.TeacherClass" FromRole="Class" ToRole="Teacher" />
+    <NavigationProperty Name="Student" Relationship="Model1.ClassStudent" FromRole="Class" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommentContent" Type="String" Nullable="true" MaxLength="100" />
+    <Property Name="CommentTime" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="Course" Relationship="Model1.CourseComment" FromRole="Comment" ToRole="Course" />
+  </EntityType>
+  <EntityType Name="Collection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CollectionName" Type="String" Nullable="true" MaxLength="50" />
+    <NavigationProperty Name="Student" Relationship="Model1.StudentCollection" FromRole="Collection" ToRole="Student" />
+    <NavigationProperty Name="TestQuestion" Relationship="Model1.TestQuestionCollection" FromRole="Collection" ToRole="TestQuestion" />
+  </EntityType>
+  <Association Name="CourseTestPaper">
+    <End Type="Model1.Course" Role="Course" Multiplicity="1" />
+    <End Type="Model1.TestPaper" Role="TestPaper" Multiplicity="*" />
+  </Association>
+  <Association Name="TeacherClass">
+    <End Type="Model1.Teacher" Role="Teacher" Multiplicity="*" />
+    <End Type="Model1.Class" Role="Class" Multiplicity="*" />
+  </Association>
+  <Association Name="ClassStudent">
+    <End Type="Model1.Class" Role="Class" Multiplicity="1" />
+    <End Type="Model1.Student" Role="Student" Multiplicity="*" />
+  </Association>
+  <Association Name="StudentCollection">
+    <End Type="Model1.Student" Role="Student" Multiplicity="1" />
+    <End Type="Model1.Collection" Role="Collection" Multiplicity="*" />
+  </Association>
+  <Association Name="StudentCourse">
+    <End Type="Model1.Student" Role="Student" Multiplicity="*" />
+    <End Type="Model1.Course" Role="Course" Multiplicity="*" />
+  </Association>
+  <Association Name="CourseComment">
+    <End Type="Model1.Course" Role="Course" Multiplicity="1" />
+    <End Type="Model1.Comment" Role="Comment" Multiplicity="*" />
+  </Association>
+  <Association Name="StudentTestPaper">
+    <End Type="Model1.Student" Role="Student" Multiplicity="1" />
+    <End Type="Model1.TestPaper" Role="TestPaper" Multiplicity="*" />
+  </Association>
+  <EntityType Name="StudentTestResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuestionResult" Type="String" Nullable="false" />
+    <NavigationProperty Name="TestPaper" Relationship="Model1.TestPaperStudentTestResult" FromRole="StudentTestResult" ToRole="TestPaper" />
+    <NavigationProperty Name="Student" Relationship="Model1.StudentStudentTestResult" FromRole="StudentTestResult" ToRole="Student" />
+    <NavigationProperty Name="TestQuestion" Relationship="Model1.TestQuestionStudentTestResult" FromRole="StudentTestResult" ToRole="TestQuestion" />
+  </EntityType>
+  <Association Name="TestPaperStudentTestResult">
+    <End Type="Model1.TestPaper" Role="TestPaper" Multiplicity="1" />
+    <End Type="Model1.StudentTestResult" Role="StudentTestResult" Multiplicity="*" />
+  </Association>
+  <Association Name="StudentStudentTestResult">
+    <End Type="Model1.Student" Role="Student" Multiplicity="1" />
+    <End Type="Model1.StudentTestResult" Role="StudentTestResult" Multiplicity="*" />
+  </Association>
+  <Association Name="TestQuestionCollection">
+    <End Type="Model1.TestQuestion" Role="TestQuestion" Multiplicity="1" />
+    <End Type="Model1.Collection" Role="Collection" Multiplicity="*" />
+  </Association>
+  <Association Name="TestQuestionStudentTestResult">
+    <End Type="Model1.TestQuestion" Role="TestQuestion" Multiplicity="1" />
+    <End Type="Model1.StudentTestResult" Role="StudentTestResult" Multiplicity="*" />
+  </Association>
+  <EntityType Name="PaperQuestion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="TestQuestion" Relationship="Model1.TestQuestionPaperQuestion" FromRole="PaperQuestion" ToRole="TestQuestion" />
+    <NavigationProperty Name="BaseTestPaper" Relationship="Model1.BaseTestPaperPaperQuestion" FromRole="PaperQuestion" ToRole="BaseTestPaper" />
+  </EntityType>
+  <Association Name="TestQuestionPaperQuestion">
+    <End Type="Model1.TestQuestion" Role="TestQuestion" Multiplicity="1" />
+    <End Type="Model1.PaperQuestion" Role="PaperQuestion" Multiplicity="*" />
+  </Association>
+  <Association Name="TestPaperScore">
+    <End Type="Model1.TestPaper" Role="TestPaper" Multiplicity="1" />
+    <End Type="Model1.Score" Role="Score" Multiplicity="*" />
+  </Association>
+  <Association Name="CourseScore">
+    <End Type="Model1.Course" Role="Course" Multiplicity="1" />
+    <End Type="Model1.Score" Role="Score" Multiplicity="*" />
+  </Association>
+  <EntityType Name="BaseTestPaper">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="TestPaper" Relationship="Model1.BaseTestPaperTestPaper" FromRole="BaseTestPaper" ToRole="TestPaper" />
+    <NavigationProperty Name="PaperQuestion" Relationship="Model1.BaseTestPaperPaperQuestion" FromRole="BaseTestPaper" ToRole="PaperQuestion" />
+    <Property Name="BaseTestPaperName" Type="String" Nullable="true" />
+    <Property Name="BaseTestPaperCreateTime" Type="DateTime" Nullable="true" />
+    <Property Name="BaseTestPaperType" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="BaseTestPaperTestPaper">
+    <End Type="Model1.BaseTestPaper" Role="BaseTestPaper" Multiplicity="1" />
+    <End Type="Model1.TestPaper" Role="TestPaper" Multiplicity="*" />
+  </Association>
+  <Association Name="BaseTestPaperPaperQuestion">
+    <End Type="Model1.BaseTestPaper" Role="BaseTestPaper" Multiplicity="1" />
+    <End Type="Model1.PaperQuestion" Role="PaperQuestion" Multiplicity="*" />
+  </Association>
+</Schema>

@@ -1,0 +1,61 @@
+﻿@using YKT.Exam.Model;
+@model Class
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Content/themes/icon.css" rel="stylesheet" />
+    <link href="~/Content/demo.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <script src="~/Scripts/datapattern.js"></script>
+
+    <script src="~/Scripts/MyDemoJs/fenye.js"></script>
+</head>
+<body>
+    <div style="width:100px;max-width:100px;margin-top:-20px">
+        <div style="width:100px">
+            <input id="cc" style="width:100px;">
+        </div>
+    </div>
+    <div id="sp">   
+        <div style="padding:10px">
+            <input type="radio" name="lang" value="-1"><span>全部学生</span><br />
+            @foreach (var item in ViewBag.listClass)
+            {
+                <input type="radio" name="lang" value="@item.Id"><span>@item.ClassName</span><br />
+
+            }
+            
+        </div>
+    </div>
+    <div>
+        <table id="tt" style="width: 700px;" title="标题，可以使用代码进行初始化，也可以使用这种属性的方式" iconcls="icon-edit"></table>
+    </div>
+    <script type="text/javascript">
+		$(function(){
+			$('#cc').combo({
+				required:true,
+				editable:false,
+				label:'Language:',
+				labelPosition:'top'
+			});
+			$('#sp').appendTo($('#cc').combo('panel'));
+			$('#sp input').click(function(){
+				var v = $(this).val();
+				var s = $(this).next('span').text();
+				$('#cc').combo('setValue', v).combo('setText', s).combo('hidePanel');
+				loadData(v);  //加载指定班级的数据
+			});
+		});
+    </script>
+</body>
+</html>

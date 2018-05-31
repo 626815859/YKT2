@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="TestQuestionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.TestQuestion)">
+        <MappingFragment StoreEntitySet="TestQuestionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TestQuestionType" ColumnName="TestQuestionType" />
+          <ScalarProperty Name="TestQuestionName" ColumnName="TestQuestionName" />
+          <ScalarProperty Name="TestQuestionQuestion" ColumnName="TestQuestionQuestion" />
+          <ScalarProperty Name="TestQuestionGrade" ColumnName="TestQuestionGrade" />
+          <ScalarProperty Name="TestQuestionResult" ColumnName="TestQuestionResult" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestPaperSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.TestPaper)">
+        <MappingFragment StoreEntitySet="TestPaperSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TestPaperStartTime" ColumnName="TestPaperStartTime" />
+          <ScalarProperty Name="TestPaperEndTime" ColumnName="TestPaperEndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Teacher)">
+        <MappingFragment StoreEntitySet="TeacherSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+          <ScalarProperty Name="TeacherPwd" ColumnName="TeacherPwd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Student)">
+        <MappingFragment StoreEntitySet="StudentSet">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentPwd" ColumnName="StudentPwd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Course)">
+        <MappingFragment StoreEntitySet="CourseSet">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScoreSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Score)">
+        <MappingFragment StoreEntitySet="ScoreSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Class)">
+        <MappingFragment StoreEntitySet="ClassSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Comment)">
+        <MappingFragment StoreEntitySet="CommentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="CommentTime" ColumnName="CommentTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Collection)">
+        <MappingFragment StoreEntitySet="CollectionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CollectionName" ColumnName="CollectionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentTestResultSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.StudentTestResult)">
+        <MappingFragment StoreEntitySet="StudentTestResultSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="QuestionResult" ColumnName="QuestionResult" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaperQuestionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.PaperQuestion)">
+        <MappingFragment StoreEntitySet="PaperQuestionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BaseTestPaperSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.BaseTestPaper)">
+        <MappingFragment StoreEntitySet="BaseTestPaperSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BaseTestPaperName" ColumnName="BaseTestPaperName" />
+          <ScalarProperty Name="BaseTestPaperCreateTime" ColumnName="BaseTestPaperCreateTime" />
+          <ScalarProperty Name="BaseTestPaperType" ColumnName="BaseTestPaperType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CourseTestPaper" TypeName="Model1.CourseTestPaper" StoreEntitySet="TestPaperSet">
+      <EndProperty Name="Course">
+        <ScalarProperty Name="CourseId" ColumnName="Course_CourseId" />
+      </EndProperty>
+      <EndProperty Name="TestPaper">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeacherClass" TypeName="Model1.TeacherClass" StoreEntitySet="TeacherClass">
+      <EndProperty Name="Teacher">
+        <ScalarProperty Name="Id" ColumnName="Teacher_Id" />
+      </EndProperty>
+      <EndProperty Name="Class">
+        <ScalarProperty Name="Id" ColumnName="Class_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ClassStudent" TypeName="Model1.ClassStudent" StoreEntitySet="StudentSet">
+      <EndProperty Name="Class">
+        <ScalarProperty Name="Id" ColumnName="Class_Id" />
+      </EndProperty>
+      <EndProperty Name="Student">
+        <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StudentCollection" TypeName="Model1.StudentCollection" StoreEntitySet="CollectionSet">
+      <EndProperty Name="Student">
+        <ScalarProperty Name="StudentId" ColumnName="Student_StudentId" />
+      </EndProperty>
+      <EndProperty Name="Collection">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StudentCourse" TypeName="Model1.StudentCourse" StoreEntitySet="StudentCourse">
+      <EndProperty Name="Student">
+        <ScalarProperty Name="StudentId" ColumnName="Student_StudentId" />
+      </EndProperty>
+      <EndProperty Name="Course">
+        <ScalarProperty Name="CourseId" ColumnName="Course_CourseId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CourseComment" TypeName="Model1.CourseComment" StoreEntitySet="CommentSet">
+      <EndProperty Name="Course">
+        <ScalarProperty Name="CourseId" ColumnName="Course_CourseId" />
+      </EndProperty>
+      <EndProperty Name="Comment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StudentTestPaper" TypeName="Model1.StudentTestPaper" StoreEntitySet="TestPaperSet">
+      <EndProperty Name="Student">
+        <ScalarProperty Name="StudentId" ColumnName="Student_StudentId" />
+      </EndProperty>
+      <EndProperty Name="TestPaper">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TestPaperStudentTestResult" TypeName="Model1.TestPaperStudentTestResult" StoreEntitySet="StudentTestResultSet">
+      <EndProperty Name="TestPaper">
+        <ScalarProperty Name="Id" ColumnName="TestPaper_Id" />
+      </EndProperty>
+      <EndProperty Name="StudentTestResult">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StudentStudentTestResult" TypeName="Model1.StudentStudentTestResult" StoreEntitySet="StudentTestResultSet">
+      <EndProperty Name="Student">
+        <ScalarProperty Name="StudentId" ColumnName="Student_StudentId" />
+      </EndProperty>
+      <EndProperty Name="StudentTestResult">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TestQuestionCollection" TypeName="Model1.TestQuestionCollection" StoreEntitySet="CollectionSet">
+      <EndProperty Name="TestQuestion">
+        <ScalarProperty Name="Id" ColumnName="TestQuestion_Id" />
+      </EndProperty>
+      <EndProperty Name="Collection">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TestQuestionStudentTestResult" TypeName="Model1.TestQuestionStudentTestResult" StoreEntitySet="StudentTestResultSet">
+      <EndProperty Name="TestQuestion">
+        <ScalarProperty Name="Id" ColumnName="TestQuestion_Id" />
+      </EndProperty>
+      <EndProperty Name="StudentTestResult">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TestQuestionPaperQuestion" TypeName="Model1.TestQuestionPaperQuestion" StoreEntitySet="PaperQuestionSet">
+      <EndProperty Name="TestQuestion">
+        <ScalarProperty Name="Id" ColumnName="TestQuestion_Id" />
+      </EndProperty>
+      <EndProperty Name="PaperQuestion">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TestPaperScore" TypeName="Model1.TestPaperScore" StoreEntitySet="ScoreSet">
+      <EndProperty Name="TestPaper">
+        <ScalarProperty Name="Id" ColumnName="TestPaper_Id" />
+      </EndProperty>
+      <EndProperty Name="Score">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CourseScore" TypeName="Model1.CourseScore" StoreEntitySet="ScoreSet">
+      <EndProperty Name="Course">
+        <ScalarProperty Name="CourseId" ColumnName="Course_CourseId" />
+      </EndProperty>
+      <EndProperty Name="Score">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BaseTestPaperTestPaper" TypeName="Model1.BaseTestPaperTestPaper" StoreEntitySet="TestPaperSet">
+      <EndProperty Name="BaseTestPaper">
+        <ScalarProperty Name="Id" ColumnName="BaseTestPaper_Id" />
+      </EndProperty>
+      <EndProperty Name="TestPaper">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BaseTestPaperPaperQuestion" TypeName="Model1.BaseTestPaperPaperQuestion" StoreEntitySet="PaperQuestionSet">
+      <EndProperty Name="BaseTestPaper">
+        <ScalarProperty Name="Id" ColumnName="BaseTestPaper_Id" />
+      </EndProperty>
+      <EndProperty Name="PaperQuestion">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

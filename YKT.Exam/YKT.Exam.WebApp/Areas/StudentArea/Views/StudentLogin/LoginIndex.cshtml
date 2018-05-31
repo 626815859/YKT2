@@ -1,0 +1,119 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>一考通学生端登录</title>
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <style type="text/css">
+        body {
+            background-color: cornflowerblue;
+        }
+
+        .panel-c-l {
+            text-align:center;
+            width: 300px;
+            height: 200px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+
+
+        function changeCheckCode() {
+            $("#img").attr("src", $("#img").attr("src") + 1);  //id=2
+        }
+        function afterLogin(data) {
+            var serverData = data.split(':');   //将服务器得到的数据如（ok:登录成功!）用：分割
+            if (serverData[0] == "ok") {
+                window.location.href = "/StudentArea/StudentHome/Index";   //登录成功后
+
+            } else if (serverData[0] == "no") {
+                $("#errorMsg").text(serverData[1]);
+                changeCheckCode();//登录失败后，再给验证码刷新一下
+            } else {
+                $("#errorMsg").text("系统繁忙!!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="panel-c-l">
+        <fieldset>
+            <legend>
+                学生端登录
+            </legend>
+            <div >
+
+             @using (Ajax.BeginForm("StudentLogin", new { }, new AjaxOptions() { HttpMethod = "post", OnSuccess = "afterLogin" }, new { id = "loginForm" }))
+               {
+                    <table cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td align="left" colspan="2">
+                                    <h3>
+                                        请使用一考通系统账号登录
+                                    </h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    账号：
+                                </td>
+                                <td align="left">
+                                    <input type="text" name="LoginCode" id="LoginCode" class="login-text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    密码：
+                                </td>
+                                <td align="left">
+                                    <input type="password" name="LoginPwd" id="LoginPwd" class="login-text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    验证码：
+                                </td>
+                                <td align="left">
+                                    <input type="text" class="login-text" id="code" name="vCode" value="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <img id="img" src="/StudentLogin/ShowValidateCode/?id=1" style="float: left; height: 24px;" />
+                                    <div style="float: left; margin-left: 5px; margin-top: 10px;">
+                                        <a href="javascript:void(0)" onclick="changeCheckCode();return false;">看不清，换一张</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="2">
+                                    <input type="submit" id="btnLogin" value="登录" class="login-btn" />
+                                    <span id="errorMsg"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </fieldset>
+
+
+    </div>
+</body>
+</html>

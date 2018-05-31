@@ -1,0 +1,67 @@
+﻿@using YKT.Exam.WebApp.Models;
+@model ClassCourseViewModels
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>所有试卷</title>
+    <link href="~/Content/themes/default/easyui.css" rel="stylesheet" />
+    <link href="~/Content/themes/icon.css" rel="stylesheet" />
+    <link href="~/Content/demo.css" rel="stylesheet" />   @*时间*@
+
+
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <script src="~/Scripts/datapattern.js"></script>
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+
+    <script src="~/Scripts/MyDemoJs/BaseTestPaperJS.js"></script>
+
+</head>
+<body>
+
+    <div>
+        <table id="tt" style="width: 700px;" title="标题，可以使用代码进行初始化，也可以使用这种属性的方式" iconcls="icon-edit"></table>
+    </div>
+
+    <!--发布考试-->
+    <div id="SendTestPaper" style="width:300px">
+
+        <!--班级-->
+        请选择班级:<div>
+            <select id="stuClass">
+                @foreach (var item in ViewBag.ClassCourseViewModels.ClassList)
+                {
+                    <option value="@item.Id">@item.ClassName</option>          
+                }
+            </select>
+        </div>
+        <!--班级-->
+        <!--科目-->
+        请选择科目:<div>
+            <select id="stuCourse">
+                @foreach (var item in ViewBag.ClassCourseViewModels.CourseList)
+                {
+                    <option value="@item.CourseId">@item.CourseName</option>
+                }
+            </select>
+        </div>
+        <!--科目-->
+        <!--时间-->
+        <div style="margin-bottom:50px;width:350px">
+            起始时间:<input id="StartTime" class="easyui-datetimebox" label="width: 80%" labelPosition="top" style="width:120px;"><br />
+            结束时间:<input id="EndTime" class="easyui-datetimebox" label="width: 80%" labelPosition="top" style="width:120px;">
+        </div>
+        <!--时间-->
+    </div>
+</body>
+</html>
